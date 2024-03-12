@@ -1,18 +1,20 @@
-import { useState } from "react";
 import Filter from "./Filter";
 import PersonForm from "./PersonForm";
 import Persons from "./Persons";
+import useStateCustomHook from "../hooks"; // Importa el custom hook
 
 const App = () => {
-  const [persons, setPersons] = useState([
+  // Utiliza el custom hook para manejar el estado de persons, newName, newNumber, y filterValue
+  const [persons, setPersons] = useStateCustomHook([
     { name: "Arto Hellas", number: "672253023", id: 1 },
     { name: "Arnau Gallego", number: "671512305", id: 2 },
     { name: "Marc Fleck", number: "6758493", id: 3 },
     { name: "Josep Rubió", number: "678978345", id: 4 },
   ]);
-  const [newName, setNewName] = useState("");
-  const [newNumber, setNewNumber] = useState("");
-  const [filterValue, setFilterValue] = useState("");
+
+  const [newName, setNewName] = useStateCustomHook("");
+  const [newNumber, setNewNumber] = useStateCustomHook("");
+  const [filterValue, setFilterValue] = useStateCustomHook("");
 
   const handleNameChange = (event) => {
     setNewName(event.target.value);
